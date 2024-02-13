@@ -1,0 +1,97 @@
+<div class="card">
+  <p-toast></p-toast>
+  <p-table styleClass="p-datatable-gridlines p-datatable-striped"
+           [value]="stores"
+           [tableStyle]="{'min-width': '60rem'}"
+           [paginator]="true"
+           [rows]="5"
+           [showCurrentPageReport]="true"
+           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+           (onPage)="pageChange($event)"
+           [rowsPerPageOptions]="[10, 25, 50]">
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        Stores
+        <p-button icon="pi pi-refresh" [rounded]="true" [text]="true" (click)="onRefresh()"></p-button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Branch</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-store>
+      <tr>
+        <td>{{store.id}}</td>
+        <td>{{store.branch}}</td>
+        <td>{{store.address}}</td>
+        <td>
+          <div class="flex align-items-center justify-content-center gap-2">
+            <p-button icon="pi pi-pencil" [rounded]="true" [text]="true" (click)="onEdit(store)"></p-button>
+            <p-button icon="pi pi-trash" [rounded]="true" [text]="true" severity="danger" (click)="onDelete(store)"></p-button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button icon="pi pi-plus" [rounded]="true" [text]="true" (click)="onAdd()"></p-button>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        In total there are {{stores ? stores.length : 0 }} stores.
+      </div>
+    </ng-template>
+  </p-table>
+</div>
+<p-dialog (onShow)="showDialogMaximized(storeModal)"
+          [modal]="true"
+          [resizable]="false"
+          [closeOnEscape]="false"
+          [(visible)]="visibleStoreModal"
+          #storeModal>
+  <ng-template pTemplate="header">
+    <div class="inline-flex align-items-center justify-content-center gap-2">
+      <h2 class="font-bold white-space-nowrap">Store</h2>
+    </div>
+  </ng-template>
+  <form [formGroup]="formGroup">
+    <div class="flex-auto">
+      <span class="p-float-label flex-auto">
+        <input pInputText id="branch" formControlName="branch" />
+        <label for="branch">Branch</label>
+      </span>
+      <span class="p-float-label flex-auto">
+        <textarea id="address" formControlName="address" rows="5" cols="30" pInputTextarea [autoResize]="true"></textarea>
+        <label for="address">Address</label>
+      </span>
+      <p-checkbox [(ngModel)]="showArticles" [binary]="true" inputId="binary" value="Add related articles" [ngModelOptions]="{standalone: true}"></p-checkbox>
+      <div *ngIf="showArticles" class="card flex justify-content-center">
+        <p-listbox [options]="sourceArticles"
+                   [(ngModel)]="targetArticles"
+                   [selectAll]="selectAllArticles"
+                   optionLabel="code"
+                   [style]="{ width: '15rem' }"
+                   [virtualScroll]="true"
+                   [filter]="true"
+                   [virtualScrollItemSize]="43"
+                   [multiple]="true"
+                   [checkbox]="true"
+                   [showToggleAll]="true"
+                   [metaKeySelection]="false"
+                   (onSelectAllChange)="onSelectAllArticlesChange($event)"
+                   (onChange)="onChangeArticlesSelection($event)"
+                   [listStyle]="{ 'max-height': '220px' }"
+                   [ngModelOptions]="{standalone: true}"></p-listbox>
+      </div>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <div class="inline-flex align-items-right justify-content-right gap-2">
+      <p-button icon="pi pi-check" [rounded]="true" (click)="SaveForm()" label="Save"></p-button>
+      <p-button icon="pi pi-times" [rounded]="true" (click)="CloseForm()" severity="danger" label="Close"></p-button>
+    </div>
+  </ng-template>
+</p-dialog>

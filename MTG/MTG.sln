@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTG.Server", "Api\MTG.Server\MTG.Server.csproj", "{0E096527-2F5C-409F-AEBA-267CAB87D6F9}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "mtg.client", "Front\mtg.client\mtg.client.esproj", "{2CD9F190-60DB-462B-A23D-C209927C43FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Front", "Front", "{20D2F17A-3126-421D-8C5F-864B41570328}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{CF963F82-514D-495D-BD13-D11EF5C062FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{0FB4394B-71C9-40F8-A02E-FB85E2D9C625}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTG.Business", "Business\MTG.Business\MTG.Business.csproj", "{CCFEEB53-F53F-4597-BF6D-249149E4536A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{7AE48B05-45C6-4787-A5A0-6A96CBF2D94B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTG.Data", "Data\MTG.Data\MTG.Data.csproj", "{61083F4F-19C2-4187-8DB4-2CA0770893C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{7E46F191-A07F-4205-A823-E65E4E8DCD68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTG.Entities", "Entities\MTG.Entities\MTG.Entities.csproj", "{D25262C1-63C9-4255-9692-15BC07AFE3EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E096527-2F5C-409F-AEBA-267CAB87D6F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E096527-2F5C-409F-AEBA-267CAB87D6F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E096527-2F5C-409F-AEBA-267CAB87D6F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E096527-2F5C-409F-AEBA-267CAB87D6F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD9F190-60DB-462B-A23D-C209927C43FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD9F190-60DB-462B-A23D-C209927C43FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD9F190-60DB-462B-A23D-C209927C43FD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2CD9F190-60DB-462B-A23D-C209927C43FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD9F190-60DB-462B-A23D-C209927C43FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD9F190-60DB-462B-A23D-C209927C43FD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CCFEEB53-F53F-4597-BF6D-249149E4536A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCFEEB53-F53F-4597-BF6D-249149E4536A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCFEEB53-F53F-4597-BF6D-249149E4536A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCFEEB53-F53F-4597-BF6D-249149E4536A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61083F4F-19C2-4187-8DB4-2CA0770893C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61083F4F-19C2-4187-8DB4-2CA0770893C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61083F4F-19C2-4187-8DB4-2CA0770893C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61083F4F-19C2-4187-8DB4-2CA0770893C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D25262C1-63C9-4255-9692-15BC07AFE3EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D25262C1-63C9-4255-9692-15BC07AFE3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D25262C1-63C9-4255-9692-15BC07AFE3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D25262C1-63C9-4255-9692-15BC07AFE3EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0E096527-2F5C-409F-AEBA-267CAB87D6F9} = {CF963F82-514D-495D-BD13-D11EF5C062FE}
+		{2CD9F190-60DB-462B-A23D-C209927C43FD} = {20D2F17A-3126-421D-8C5F-864B41570328}
+		{CCFEEB53-F53F-4597-BF6D-249149E4536A} = {0FB4394B-71C9-40F8-A02E-FB85E2D9C625}
+		{61083F4F-19C2-4187-8DB4-2CA0770893C4} = {7AE48B05-45C6-4787-A5A0-6A96CBF2D94B}
+		{D25262C1-63C9-4255-9692-15BC07AFE3EB} = {7E46F191-A07F-4205-A823-E65E4E8DCD68}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22393F0B-FB86-4624-93A6-E3798562AB94}
+	EndGlobalSection
+EndGlobal

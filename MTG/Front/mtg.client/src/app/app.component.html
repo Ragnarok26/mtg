@@ -1,0 +1,18 @@
+<div class="card flex justify-content-center">
+  <form *ngIf="!isLoggedIn" [formGroup]="formGroup">
+    <div class="flex flex-column gap-2">
+      <label for="username">Username</label>
+      <input pInputText id="username" aria-describedby="username-help" formControlName="username" />
+      <small id="username-help">Enter your username.</small>
+    </div>
+    <div class="flex flex-column gap-2">
+      <label for="username">Password</label>
+      <p-password aria-describedby="password-help" formControlName="password" [feedback]="false"></p-password>
+      <small id="password-help">Enter your password.</small>
+    </div>
+    <div class="flex flex-column gap-2">
+      <p-button label="Submit" (click)="login();"></p-button>
+    </div>
+  </form>
+  <mtg-home *ngIf="isLoggedIn"></mtg-home>
+</div>

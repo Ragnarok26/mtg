@@ -1,0 +1,61 @@
+<div class="card">
+  <p-tabView>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <i class="pi pi-tags"></i>
+        <span>Articles</span>
+      </ng-template>
+      <ng-template pTemplate="content">
+        <mtg-article></mtg-article>
+      </ng-template>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <i class="pi pi-shopping-bag"></i>
+        <span>Stores</span>
+      </ng-template>
+      <ng-template pTemplate="content">
+        <mtg-store></mtg-store>
+      </ng-template>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <i class="pi pi-user"></i>
+        <span>Clients</span>
+      </ng-template>
+      <ng-template pTemplate="content">
+        <mtg-client></mtg-client>
+      </ng-template>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <i class="pi pi-shopping-cart"></i>
+        <span>Buy</span>
+      </ng-template>
+      <ng-template pTemplate="content">
+        <div *ngIf="selectedArticles.length > 0" class="card">
+          <p-button icon="pi pi-wallet" [rounded]="true" (click)="pay()" />
+        </div>
+        <div *ngIf="articles.length > 0" class="card">
+          <p-carousel [value]="articles" [numVisible]="3" [numScroll]="3" [circular]="true" [responsiveOptions]="responsiveOptions" [autoplayInterval]="10000">
+            <ng-template let-article pTemplate="item">
+              <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
+                <div class="mb-3">
+                  <p-image [src]="'data:image/png;base64, ' + article.image" [alt]="article.description" class="w-6 shadow-2"></p-image>
+                </div>
+                <div>
+                  <h4 class="mb-1">{{ article.description }}</h4>
+                  <h6 class="mt-0 mb-3">{{ '$' + article.price }}</h6>
+                  <p-tag [value]="article.stock > 0 ? 'INSTOCK' : 'OUTOFSTOCK'" [severity]="article.stock > 0 ? 'success' : 'danger'"></p-tag>
+                  <div class="mt-5 flex align-items-center justify-content-center gap-2">
+                    <p-button icon="pi pi-shopping-cart" [rounded]="true" (click)="addToCart(article)" />
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </p-carousel>
+        </div>
+      </ng-template>
+    </p-tabPanel>
+  </p-tabView>
+</div>

@@ -1,0 +1,94 @@
+<div class="card">
+  <p-toast></p-toast>
+  <p-table styleClass="p-datatable-gridlines p-datatable-striped"
+           [value]="clients"
+           [tableStyle]="{'min-width': '60rem'}"
+           [paginator]="true"
+           [rows]="5"
+           [showCurrentPageReport]="true"
+           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+           (onPage)="pageChange($event)"
+           [rowsPerPageOptions]="[10, 25, 50]">
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        Clients
+        <p-button icon="pi pi-refresh" [rounded]="true" [text]="true" (click)="onRefresh()"></p-button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Username</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-client>
+      <tr>
+        <td>{{client.id}}</td>
+        <td>{{client.name}}</td>
+        <td>{{client.lastName}}</td>
+        <td>{{client.username}}</td>
+        <td>{{client.address}}</td>
+        <td>
+          <div class="flex align-items-center justify-content-center gap-2">
+            <p-button icon="pi pi-pencil" [rounded]="true" [text]="true" (click)="onEdit(client)"></p-button>
+            <p-button icon="pi pi-trash" [rounded]="true" [text]="true" severity="danger" (click)="onDelete(client)"></p-button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button icon="pi pi-plus" [rounded]="true" [text]="true" (click)="onAdd()"></p-button>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        In total there are {{clients ? clients.length : 0 }} clients.
+      </div>
+    </ng-template>
+  </p-table>
+</div>
+<p-dialog (onShow)="showDialogMaximized(clientModal)"
+          [modal]="true"
+          [resizable]="false"
+          [closeOnEscape]="false"
+          [(visible)]="visibleClientModal"
+          #clientModal>
+  <ng-template pTemplate="header">
+    <div class="inline-flex align-items-center justify-content-center gap-2">
+      <h2 class="font-bold white-space-nowrap">Client</h2>
+    </div>
+  </ng-template>
+  <form [formGroup]="formGroup">
+    <div class="flex-auto">
+      <span class="p-float-label flex-auto">
+        <input pInputText id="name" formControlName="name" />
+        <label for="name">Name</label>
+      </span>
+      <span class="p-float-label flex-auto">
+        <input pInputText id="lastName" formControlName="lastName" />
+        <label for="lastName">Last Name</label>
+      </span>
+      <span class="p-float-label flex-auto">
+        <input pInputText id="username" formControlName="username" />
+        <label for="username">Username</label>
+      </span>
+      <div class="flex flex-column gap-2">
+        <p-password id="password" formControlName="password"></p-password>
+        <label for="password">Password</label>
+      </div>
+      <span class="p-float-label flex-auto">
+        <textarea id="address" formControlName="address" rows="5" cols="30" pInputTextarea [autoResize]="true"></textarea>
+        <label for="address">Address</label>
+      </span>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <div class="inline-flex align-items-right justify-content-right gap-2">
+      <p-button icon="pi pi-check" [rounded]="true" (click)="SaveForm()" label="Save"></p-button>
+      <p-button icon="pi pi-times" [rounded]="true" (click)="CloseForm()" severity="danger" label="Close"></p-button>
+    </div>
+  </ng-template>
+</p-dialog>
