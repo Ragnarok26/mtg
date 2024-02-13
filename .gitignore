@@ -1,0 +1,15 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/MTG/Api/MTG.Server/bin/Debug/net8.0
+/MTG/.vs
+/MTG/Api/MTG.Server/obj
+/MTG/Business/MTG.Business/bin/Debug/net8.0
+/MTG/Business/MTG.Business/obj
+/MTG/Data/MTG.Data/bin/Debug/net8.0
+/MTG/Data/MTG.Data/obj
+/MTG/Entities/MTG.Entities/bin/Debug/net8.0
+/MTG/Entities/MTG.Entities/obj
+/MTG/Front/mtg.client/.vscode
+/MTG/Front/mtg.client/obj/Debug
